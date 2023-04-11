@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Vehicle{% endblock %}
+
+{% block content %}
+	<h1>Create Vehicle</h1>
+	{% if error %}
+		<p>{{ error }}</p>
+	{% endif %}
+	<form method="POST" action="{{ url_for('create_vehicle') }}">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name"><br>
+
+		<label for="type">Type:</label>
+		<select id="type" name="type">
+			<option value="car">Car</option>
+			<option value="motorcycle">Motorcycle</option>
+			<option value="bicycle">Bicycle</option>
+		</select><br>
+
+		<input type="submit" value="Create">
+	</form>
+{% endblock %}

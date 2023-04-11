@@ -1,0 +1,19 @@
+<nav>
+	<ul>
+		<li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+		{% if session['role'] == 'admin' %}
+		<li><a href="{{ url_for('register') }}">Register</a></li>
+		<li><a href="{{ url_for('create_user') }}">Create User</a></li>
+		<li><a href="{{ url_for('create_vehicle') }}">Create Vehicle</a></li>
+		<li><a href="{{ url_for('create_route') }}">Create Route</a></li>
+		{% endif %}
+		{% if session['role'] == 'security' %}
+		<li><a href="{{ url_for('create_team') }}">Create Security Team</a></li>
+		{% endif %}
+		{% if 'user_id' in session %}
+		<li><a href="{{ url_for('logout') }}">Logout</a></li>
+		{% else %}
+		<li><a href="{{ url_for('login') }}">Login</a></li>
+		{% endif %}
+	</ul>
+</nav>
